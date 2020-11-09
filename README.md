@@ -10,6 +10,6 @@ You are free to use any of these custom functions in whatever projects you see f
 > // === \
 > // Changelog: \
 > // 11/9/2020 [Travis]: Created \
-> // === \
+> // === 
 
 All of the functions in this repo are licensed using v3 of the Gnu General Public License where applicable. The full license terms can be found in LICENSE.md
