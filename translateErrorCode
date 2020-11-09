@@ -6,9 +6,16 @@
 //        November 2020 this function is up to date with the error codes provided
 //        by Claris. I split the errors into groups based on number mostly for
 //        my own sanity when searching for a certain code later.
+//
+//        I've also included certain MacOS specific error codes and descriptions
+//        which may or may not be useful. All of the MacOS specific codes have 
+//        been labeled between "//======================" brackets just in case
+//        anyone wants to remove them for some reason.
 // ===
 // Changelog:
-// 11/9/2020 [Travis]: Created
+// 11/09/2020 [Travis]: Created
+// 11/09/2020 [Travis]: Added MacOS, Applescript, Apple Event, and Open Scripting
+//                      Architecture error codes
 // ===
 
 Case (
@@ -17,6 +24,144 @@ Case (
   errorCode < 0;
     Case (
       errorCode = "-1"; "Unknown Error";
+
+      // Applescript Error Codes
+      // ================================
+      errorCode = "-2700"; "Applescript Error: Unknown error.";
+      errorCode = "-2701"; "Applescript Error: Can’t divide <number> by zero.";
+      errorCode = "-2702"; "Applescript Error: The result of a numeric operation was too large.";
+      errorCode = "-2703"; "Applescript Error: <reference> can't be launched because it is not an application.";
+      errorCode = "-2704"; "Applescript Error: <reference> isn't scriptable.";
+      errorCode = "-2705"; "Applescript Error: The application has a corrupted dictionary.";
+      errorCode = "-2706"; "Applescript Error: Stack overflow.";
+      errorCode = "-2707"; "Applescript Error: Internal table overflow.";
+      errorCode = "-2708"; "Applescript Error: Attempt to create a value larger than the allowable size.";
+      errorCode = "-2709"; "Applescript Error: Can't get the event dictionary.";
+      errorCode = "-2720"; "Applescript Error: Can't both consider and ignore <attribute>.";
+      errorCode = "-2721"; "Applescript Error: Can't perform operation on text longer than 32K bytes.";
+      errorCode = "-2729"; "Applescript Error: Message size too large for the 7.0 Finder.";
+      errorCode = "-2740"; "Applescript Error: A <language element> can't go after this <language element>.";
+      errorCode = "-2741"; "Applescript Error: Expected <language element> but found <language element>.";
+      errorCode = "-2750"; "Applescript Error: The <name> parameter is specified more than once.";
+      errorCode = "-2751"; "Applescript Error: The <name> property is specified more than once.";
+      errorCode = "-2752"; "Applescript Error: The <name> handler is specified more than once.";
+      errorCode = "-2753"; "Applescript Error: The variable <name> is not defined.";
+      errorCode = "-2754"; "Applescript Error: Can't declare <name> as both a local and global variable.";
+      errorCode = "-2755"; "Applescript Error: Exit statement was not in a repeat loop.";
+      errorCode = "-2760"; "Applescript Error: Tell statements are nested too deeply.";
+      errorCode = "-2761"; "Applescript Error: <name> is illegal as a formal parameter.";
+      errorCode = "-2762"; "Applescript Error: <name> is not a parameter name for the event <event>.";
+      errorCode = "-2763"; "Applescript Error: No result was returned for some argument of this expression.";
+      // ================================
+
+      // MacOS Operating System Error Codes
+      // ================================
+      errorCode = "-34"; "Operating System Error: Disk <name> full.";
+      errorCode = "-35"; "Operating System Error: Disk <name> wasn’t found.";
+      errorCode = "-37"; "Operating System Error: Bad name for file";
+      errorCode = "-38"; "Operating System Error: File <name> wasn’t open.";
+      errorCode = "-39"; "Operating System Error: End of file error.";
+      errorCode = "-42"; "Operating System Error: Too many files open.";
+      errorCode = "-43"; "Operating System Error: File <name> wasn’t found.";
+      errorCode = "-44"; "Operating System Error: Disk <name> is write protected.";
+      errorCode = "-45"; "Operating System Error: File <name> is locked.";
+      errorCode = "-46"; "Operating System Error: Disk <name> is locked.";
+      errorCode = "-47"; "Operating System Error: File <name> is busy.";
+      errorCode = "-48"; "Operating System Error: Duplicate file name.";
+      errorCode = "-49"; "Operating System Error: File <name> is already open.";
+      errorCode = "-50"; "Operating System Error: Parameter error.";
+      errorCode = "-51"; "Operating System Error: File reference number error.";
+      errorCode = "-61"; "Operating System Error: File not open with write permission.";
+      errorCode = "-108"; "Operating System Error: Out of memory.";
+      errorCode = "-120"; "Operating System Error: Folder <name> wasn’t found.";
+      errorCode = "-124"; "Operating System Error: Disk <name> is disconnected.";
+      errorCode = "-128"; "Operating System Error: User cancelled.";
+      errorCode = "-192"; "Operating System Error: A resource wasn’t found.";
+      errorCode = "-600"; "Operating System Error: Application isn’t running";
+      errorCode = "-601"; "Operating System Error: Not enough room to launch application with special requirements.";
+      errorCode = "-602"; "Operating System Error: Application is not 32-bit clean.";
+      errorCode = "-605"; "Operating System Error: More memory needed than is specified in the size resource.";
+      errorCode = "-606"; "Operating System Error: Application is background-only.";
+      errorCode = "-607"; "Operating System Error: Buffer is too small.";
+      errorCode = "-608"; "Operating System Error: No outstanding high-level event.";
+      errorCode = "-609"; "Operating System Error: Connection is invalid.";
+      errorCode = "-904"; "Operating System Error: Not enough system memory to connect to remote application.";
+      errorCode = "-905"; "Operating System Error: Remote access is not allowed.";
+      errorCode = "-906"; "Operating System Error: <name> isn’t running or program linking isn’t enabled.";
+      errorCode = "-915"; "Operating System Error: Can’t find remote machine.";
+      errorCode = "-30720"; "Operating System Error: Invalid date and time <date string>.";
+      // ================================
+
+      // Apple Event Error Codes
+      // ================================
+      errorCode = "-1700"; "Apple Event Error: Bad parameter data was detected or there was a failure while performing a coercion.";
+      errorCode = "-1701"; "Apple Event Error: An Apple event description was not found.";
+      errorCode = "-1702"; "Apple Event Error: Corrupt data was detected.";
+      errorCode = "-1703"; "Apple Event Error: The wrong data type was detected.";
+      errorCode = "-1704"; "Apple Event Error: An invalid Apple event description was detected.";
+      errorCode = "-1705"; "Apple Event Error: The specified list item doesn’t exist.";
+      errorCode = "-1706"; "Apple Event Error: A newer version of Apple Event Manager is required to perform this operation.";
+      errorCode = "-1707"; "Apple Event Error: The event isn’t an Apple event.";
+      errorCode = "-1708"; "Apple Event Error: The script doesn’t understand the <message> message. The event was not handled.";
+      errorCode = "-1709"; "Apple Event Error: An invalid reply parameter was received by AEResetTimer.";
+      errorCode = "-1710"; "Apple Event Error: An invalid sending mode (something other than NoReply, WaitReply, or QueueReply) was detected or interaction level is unknown.";
+      errorCode = "-1711"; "Apple Event Error: The user canceled while waiting for an event reply.";
+      errorCode = "-1712"; "Apple Event Error: The Apple event has timed out.";
+      errorCode = "-1713"; "Apple Event Error: User interaction is not allowed.";
+      errorCode = "-1714"; "Apple Event Error: There is no special function for this keyword.";
+      errorCode = "-1715"; "Apple Event Error: A required parameter is missing.";
+      errorCode = "-1716"; "Apple Event Error: The target address type of an Apple event is unknown.";
+      errorCode = "-1717"; "Apple Event Error: Unable to find a matching event or coercion handler.";
+      errorCode = "-1718"; "Apple Event Error: Unable to access the contents of an event reply because the reply hasn’t been received yet.";
+      errorCode = "-1719"; "Apple Event Error: The specified index is invalid or out of range.";
+      errorCode = "-1720"; "Apple Event Error: The specified range is invalid, such as 3rd to 2nd or 1st to all.";
+      errorCode = "-1721"; "Apple Event Error: The wrong number of arguments was detected.";
+      errorCode = "-1723"; "Apple Event Error: The accessor was not found.";
+      errorCode = "-1725"; "Apple Event Error: There is no such Boolean operator.";
+      errorCode = "-1726"; "Apple Event Error: An invalid comparison was made or an invalid logical descriptor was detected.";
+      errorCode = "-1727"; "Apple Event Error: AEResolve was given a non-object parameter.";
+      errorCode = "-1728"; "Apple Event Error: The referenced object doesn’t exist. This is a run-time resolution error, such as when attempting to reference a third object when only two objects exist.";
+      errorCode = "-1729"; "Apple Event Error: An object counting procedure returned a negative value.";
+      errorCode = "-1730"; "Apple Event Error: Attempted to pass an empty list to an accessor.";
+      errorCode = "-1731"; "Apple Event Error: An unknown type of object was detected.";
+      errorCode = "-10000"; "Apple Event Error: The Apple event handler failed.";
+      errorCode = "-10001"; "Apple Event Error: A type mismatch has occurred.";
+      errorCode = "-10002"; "Apple Event Error: Invalid key form was detected.";
+      errorCode = "-10003"; "Apple Event Error: The specified object cannot be modified.";
+      errorCode = "-10004"; "Apple Event Error: A privilege error has occurred.";
+      errorCode = "-10005"; "Apple Event Error: The read operation was denied.";
+      errorCode = "-10006"; "Apple Event Error: The write operation was denied.";
+      errorCode = "-10007"; "Apple Event Error: The object index is too large.";
+      errorCode = "-10008"; "Apple Event Error: The specified object is not an element.";
+      errorCode = "-10009"; "Apple Event Error: Unable to provide the requested type.";
+      errorCode = "-10010"; "Apple Event Error: The Apple event handler doesn’t support the specified class.";
+      errorCode = "-10011"; "Apple Event Error: The event is not part of the current transaction.";
+      errorCode = "-10012"; "Apple Event Error: There is no such transaction.";
+      errorCode = "-10013"; "Apple Event Error: Nothing is selected by the user.";
+      errorCode = "-10014"; "Apple Event Error: The Apple event handler only handles single objects.";
+      errorCode = "-10015"; "Apple Event Error: The previous action can’t be undone.";
+      errorCode = "-10016"; "Apple Event Error: The Apple event handler does not handle remote events.";
+      errorCode = "-10023"; "Apple Event Error: The specified constant value is invalid for this property.";
+      errorCode = "-10024"; "Apple Event Error: The specified class can’t be an element of the specified container, such as when attempting to make or duplicate an object.";
+      errorCode = "-10025"; "Apple Event Error: An invalid combination of properties was provided, such as for the set, make, or duplicate command.";
+      // ================================
+
+      // Open Scripting Architecture Error Codes
+      // ================================
+      errorCode = "-1750"; "Open Scripting Architecture Error: A scripting component error has occurred.";
+      errorCode = "-1751"; "Open Scripting Architecture Error: An invalid script ID was detected.";
+      errorCode = "-1752"; "Open Scripting Architecture Error: The script isn’t a supported type.";
+      errorCode = "-1753"; "Open Scripting Architecture Error: A script error has occurred.";
+      errorCode = "-1754"; "Open Scripting Architecture Error: A bad selector was detected.";
+      errorCode = "-1756"; "Open Scripting Architecture Error: The source is not available.";
+      errorCode = "-1757"; "Open Scripting Architecture Error: There is no matching dialect.";
+      errorCode = "-1758"; "Open Scripting Architecture Error: The data format is obsolete.";
+      errorCode = "-1759"; "Open Scripting Architecture Error: The data format is too new.";
+      errorCode = "-1761"; "Open Scripting Architecture Error: There is a component mismatch—parameters are from two different components.";
+      errorCode = "-1762"; "Open Scripting Architecture Error: Unable to connect to the scripting system matching the specified ID.";
+      errorCode = "-1763"; "Open Scripting Architecture Error: Unable to store memory pointers in a saved script.";
+      // ================================
+
       "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
