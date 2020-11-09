@@ -1,6 +1,6 @@
 // Author: Travis Witt c.2020
 // Purpose: Translate FileMaker error codes to human readable text.
-// Paramters: errorCode
+// Parameters: errorCode
 // Notes: There are quite a few of these functions available online but I wanted
 //        to maintain my own because a lot of the others are outdated. As of
 //        November 2020 this function is up to date with the error codes provided
