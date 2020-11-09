@@ -323,7 +323,7 @@ Case (
       errorCode = "1507"; "Unable to login into the SMTP Server.";
       "Something went wrong. " & errorCode & " is not defined in this function."
     )
-
+  ;
 
   errorCode < 3000;
     Case (
