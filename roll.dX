@@ -5,6 +5,7 @@
 // ===
 // Changelog: 
 // 06/11/2019 [Travis]: Created
+// 11/09/2020 [Travis]: Updated to enable an unlimited number of "sides" and multiple rolls
 // ===
 
 Let(
