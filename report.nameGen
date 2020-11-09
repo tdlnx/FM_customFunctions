@@ -1,0 +1,21 @@
+// Author: Travis Witt c.2020
+// Purpose: Simply name reports in a standardized way (ie. Report_Name_MMDDYYYY.ext)
+// Parameters: reportName (text), reportDate (date), reportExt (pdf, csv, xlsx, tab, etc)
+// Notes: This doesn't export any records on its own it's just to make naming reports a little quicker.
+// ===
+// Changelog:
+// 10/19/2020 [Travis]: Created
+// 11/09/2020 [Travis]: Added example input/output and uploaded to GitHub
+// ===
+
+// Example Input: report.nameGen("Daily_Attendance_Report"; Get (CurrentDate); "pdf")
+// Example Output: Daily_Attendance_Report_11092020.pdf
+
+Substitute ( reportName ; " "; "_" ) & "_" &
+
+//Format date so it is always 8 characters long
+If( Month( Get( CurrentDate ) ) < 10; "0" & Month( Get( CurrentDate ) ); Month( Get( CurrentDate) ) ) &
+If( Day( Get( CurrentDate ) ) < 10; "0" & Day( Get( CurrentDate ) ); Day( Get( CurrentDate ) ) ) &
+Year( Get( CurrentDate ) ) &
+
+"." & reportExt
