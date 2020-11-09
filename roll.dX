@@ -1,0 +1,23 @@
+// Author: Travis Witt c.2020
+// Purpose: Roll one or multiple virtual dice.
+// Parameters: rollCount, dX
+// Notes:
+// ===
+// Changelog: 
+// 06/11/2019 [Travis]: Created
+// ===
+
+Let(
+    [
+        count = If(IsEmpty (rollCount); 1; rollCount);
+        result = Int(Random * (dX - 1 + 1)) + 1
+    ];
+    
+    Case(
+
+        count = 0; "";
+        result ≤ dX and result ≥ 1; result & If (count > 1 ; ", "; "") & roll.dX(count - 1, dX);
+        roll.dX(count, dX)
+
+    )
+)
