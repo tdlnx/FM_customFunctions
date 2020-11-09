@@ -17,7 +17,7 @@ Case (
   errorCode < 0;
     Case (
       errorCode = "-1"; "Unknown Error";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -44,7 +44,7 @@ Case (
       errorCode = "19"; "String contains characters other than A-Z, a-z, 0-9 (ASCII)";
       errorCode = "20"; "Command/operation cancelled by triggered script";
       errorCode = "21"; "Map Win 32 error of \"ERROR_NOT_SUPPORTED\". Microsoft documentation is \"the request is not supported\".";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -70,7 +70,7 @@ Case (
       errorCode = "117"; "Specified data source is not present";
       errorCode = "130"; "Files are damaged or missing and must be reinstalled";
       errorCode = "131"; "Language pack files are missing (such as template files)";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -95,7 +95,7 @@ Case (
       errorCode = "216"; "Guest account cannot be duplicated";
       errorCode = "217"; "User does not have sufficient privileges to modify administrator accountUser does not have sufficient privileges to modify administrator account";
       errorCode = "218"; "Password and verify password do not match (iPhone)";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -108,7 +108,7 @@ Case (
       errorCode = "304"; "Layout is in use by another user";
       errorCode = "306"; "Record modification ID does not match";
       errorCode = "307"; "Lost connection to the host and the transaction could not relock";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -132,7 +132,7 @@ Case (
       errorCode = "416"; "Primary key required from data source table";
       errorCode = "417"; "Database is not supported for ODBC operations";
       errorCode = "418"; "The base directory specified in the CREATE TABLE ... field blob EXTERNAL 'path' not found";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -152,7 +152,7 @@ Case (
       errorCode = "511"; "Value in field exceeds maximum field size";
       errorCode = "512"; "Record was already modified by another user";
       errorCode = "513"; "Record must have a value in some field to be created";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -162,7 +162,7 @@ Case (
       errorCode = "601"; "Combined header and footer exceed one page";
       errorCode = "602"; "Body doesn't fit on a page for current column setup";
       errorCode = "603"; "Print connection lost";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -198,7 +198,7 @@ Case (
       errorCode = "735"; "This file type cannot be displayed as a picture. It will be inserted and displayed as a file";
       errorCode = "736"; "Too much data to export to this format. It will be truncated";
       errorCode = "737"; "Bento table is reported as missed when trying to import it";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -228,7 +228,7 @@ Case (
       errorCode = "823"; "Cannot set file to single-user, guests are connected";
       errorCode = "824"; "File is damaged or not a FileMaker file";
       errorCode = "825"; "File is not authorized to reference the protected file";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -250,7 +250,7 @@ Case (
       errorCode = "956"; "Maximum number of database sessions exceeded (*)";
       errorCode = "957"; "Conflicting commands (*)";
       errorCode = "958"; "Parameter missing (*)";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -282,14 +282,14 @@ Case (
       errorCode = "1223"; "The function is not implemented";
       errorCode = "1224"; "The function is not defined";
       errorCode = "1225"; "The function is not supported in this context";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
   errorCode < 1400;
     Case (
       errorCode = "1300"; "The specified name can't be used";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -308,7 +308,7 @@ Case (
       errorCode = "1413"; "Failed communication link (ODBC)";
       errorCode = "1450"; "Action requires PHP privilege extension (*)";
       errorCode = "1451"; "Action requires that current file be remote";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -321,7 +321,7 @@ Case (
       errorCode = "1505"; "The specified authentication is not supported by the SMTP server.";
       errorCode = "1506"; "Email(s) could not be sent successfully.";
       errorCode = "1507"; "Unable to login into the SMTP Server.";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -330,14 +330,14 @@ Case (
       errorCode = "2046"; "This command or action cannot be performed because that functionality is no longer supported";
       errorCode = "2047"; "Bento 2 (or later) is not presented on the system";
       errorCode = "2048"; "The selected work book is not excel 2007/2008 format";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
   errorCode < 8000;
     Case (
       errorCode = "3000"; "Action never occurred because script was triggered";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -348,7 +348,7 @@ Case (
       errorCode = "8310"; "There is an error in the syntax of the query";
       errorCode = "8498"; "Stale Import Order To Be Updated";
       errorCode = "8499"; "Import Match May Be Invalid";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
 
@@ -358,8 +358,8 @@ Case (
       errorCode = "20605"; "No network connection is available";
       errorCode = "20606"; "Fail to resolve network address";
       errorCode = "20650"; "Page doesn't have enough footer size for encryption (new to FileMaker Pro 14)";
-      "Something went wrong. " & errorCode & " is not defined in this function."
+      "Something went wrong. Error code " & errorCode & " is not defined in this function."
     )
   ;
-"Something went wrong. " & errorCode & " is not defined in this function."
+"Something went wrong. Error code " & errorCode & " is not defined in this function."
 )
