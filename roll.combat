@@ -13,9 +13,10 @@ Let ([
     rollCount = LeftWords ( Substitute( XdX; "d"; " " ) ; 1 ) ;
     dXX = RightWords ( Substitute( XdX; "d"; " " ) ; 1 );
     hitResult = roll.dX(1, 20);
-    damageResult = roll.dX(rollCount, dXX)
+    damageResult = roll.dX(rollCount, dXX);
+    damageTotal = Sum ( Substitute( damageResult; ","; "¶" ) )
 ];
 
     "Attack Roll: " & (hitResult + toHit) & " (" & hitResult & " + " & toHit & ")" & ¶ & 
-    "Damage Roll: " & 
+    "Damage Roll: " & (damageTotal + extraDmg) & " (" & damageResult & " + " & extraDmg & ")"
 )
