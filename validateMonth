@@ -1,0 +1,26 @@
+// Author: Travis Witt c.2020
+// Purpose: Ensure the user entered a valid month (either int or text)
+// Parameters: userMonth
+// Notes: If the parameter is valid this will return the number of the
+//        given month. Otherwise it will return "error" and unmodified
+//        user input.
+// ===
+// Changelog: 
+// 11/10/2020 [Travis]: Created
+// ===
+
+Case(
+    userMonth = 1 or PatternCount ( userMonth ; "january" ); 1;
+    userMonth = 2 or PatternCount ( userMonth ; "february" ); 2;
+    userMonth = 3 or PatternCount ( userMonth ; "march" ); 3;
+    userMonth = 4 or PatternCount ( userMonth ; "april" ); 4;
+    userMonth = 5 or PatternCount ( userMonth ; "may" ); 5;
+    userMonth = 6 or PatternCount ( userMonth ; "june" ); 6;
+    userMonth = 7 or PatternCount ( userMonth ; "july" ); 7;
+    userMonth = 8 or PatternCount ( userMonth ; "august" ); 8;
+    userMonth = 9 or PatternCount ( userMonth ; "september" ); 9;
+    userMonth = 10 or PatternCount ( userMonth ; "october" ); 10;
+    userMonth = 11 or PatternCount ( userMonth ; "november" ); 11;
+    userMonth = 12 or PatternCount ( userMonth ; "december" ); 12;
+    "error " & userMonth
+)
