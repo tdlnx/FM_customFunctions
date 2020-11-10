@@ -1,0 +1,18 @@
+// Author: Travis Witt c.2020
+// Purpose: Calculate success or failure of an ablity check in
+//          tabletop role playing games
+// Parameters: modifier, adv
+// Notes: Needs the roll.dX() function to work.
+//        Ex Input: roll.ability(2, 0)
+//        Ex Output: Result: 20 (18 + 2)
+// ===
+// Changelog: 
+// 11/10/2020 [Travis]: Created
+// ===
+
+Let (
+    result = roll.dX(1, 20);
+
+    "Result: " & (result + modifier) & " (" & result & " + " & modifier & ")" &
+    If ( adv = 1; ¶ & ¶ & roll.ability(modifier, 0); "")
+)
