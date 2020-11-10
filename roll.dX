@@ -17,7 +17,7 @@ Let(
     Case(
 
         count = 0; "";
-        result ≤ dX and result ≥ 1; result & If (count > 1 ; ", "; "") & roll.dX(count - 1, dX);
+        result ≤ dX and result ≥ 1; result & If (count > 1 ; ","; "") & roll.dX(count - 1, dX);
         roll.dX(count, dX)
 
     )

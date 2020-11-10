@@ -7,4 +7,15 @@
 // 11/10/2020 [Travis]: Created
 // ===
 
-//WIP nothing to see here
+//WIP DOES NOT WORK YET
+
+Let ([
+    rollCount = LeftWords ( Substitute( XdX; "d"; " " ) ; 1 ) ;
+    dXX = RightWords ( Substitute( XdX; "d"; " " ) ; 1 );
+    hitResult = roll.dX(1, 20);
+    damageResult = roll.dX(rollCount, dXX)
+];
+
+    "Attack Roll: " & (hitResult + toHit) & " (" & hitResult & " + " & toHit & ")" & ¶ & 
+    "Damage Roll: " & 
+)
