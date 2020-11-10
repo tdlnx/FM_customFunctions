@@ -1,22 +1,25 @@
 // Author: Travis Witt c.2020
 // Purpose: Roll dice to calculate combat results in tabletop role playing games
 // Parameters: XdX, toHit, extraDmg, adv, type 
-// Notes: 
+// Notes: Requires roll.dX() function to work.
+//        For attacks with advantage/disadvantage, set adv to 1, otherwise leave it 0.
+//        Ex Input: roll.combat("1d8", 2, 1, 0, "piercing")
+//        Ex Output: Attack Roll: 22 (20 + 2)
+//                   Damage Roll: 3 (2 + 1) piercing damage.
 // ===
 // Changelog: 
 // 11/10/2020 [Travis]: Created
 // ===
 
-//WIP DOES NOT WORK YET
-
 Let ([
-    rollCount = LeftWords ( Substitute( XdX; "d"; " " ) ; 1 ) ;
-    dXX = RightWords ( Substitute( XdX; "d"; " " ) ; 1 );
+    rollCount = GetAsNumber (LeftWords ( Substitute( XdX; "d"; " " ) ; 1 )) ;
+    dXX = GetAsNumber (RightWords ( Substitute( XdX; "d"; " " ) ; 1 ));
     hitResult = roll.dX(1, 20);
     damageResult = roll.dX(rollCount, dXX);
-    damageTotal = Sum ( Substitute( damageResult; ","; "¶" ) )
-];
+    damageTotal = Evaluate(Substitute(damageResult; ","; " + "))
+    ];
 
     "Attack Roll: " & (hitResult + toHit) & " (" & hitResult & " + " & toHit & ")" & ¶ & 
-    "Damage Roll: " & (damageTotal + extraDmg) & " (" & damageResult & " + " & extraDmg & ")"
+    "Damage Roll: " & (damageTotal + extraDmg) & " (" & damageResult & " + " & extraDmg & ") " & type & " damage." & 
+    If ( adv = 1; ¶ & ¶ & roll.combat(rollCount & "d" & dXX, toHit, extraDmg, 0, type); "")
 )
