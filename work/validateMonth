@@ -10,17 +10,17 @@
 // ===
 
 Case(
-    userMonth = 1 or PatternCount ( userMonth ; "january" ); If (type = 1; 1; "January");
-    userMonth = 2 or PatternCount ( userMonth ; "february" ); If (type = 1; 2; "February");
-    userMonth = 3 or PatternCount ( userMonth ; "march" ); If (type = 1; 3; "March");
-    userMonth = 4 or PatternCount ( userMonth ; "april" ); If (type = 1; 4; "April");
-    userMonth = 5 or PatternCount ( userMonth ; "may" ); If (type = 1; 5; "May");
-    userMonth = 6 or PatternCount ( userMonth ; "june" ); If (type = 1; 6; "June");
-    userMonth = 7 or PatternCount ( userMonth ; "july" ); If (type = 1; 7; "July");
-    userMonth = 8 or PatternCount ( userMonth ; "august" ); If (type = 1; 8; "August");
-    userMonth = 9 or PatternCount ( userMonth ; "september" ); If (type = 1; 9; "September");
-    userMonth = 10 or PatternCount ( userMonth ; "october" ); If (type = 1; 10; "October");
-    userMonth = 11 or PatternCount ( userMonth ; "november" ); If (type = 1; 11; "November");
-    userMonth = 12 or PatternCount ( userMonth ; "december" ); If (type = 1; 12; "December");
+    userMonth = 1 or userMonth = "january"; If (type = 1; 1; "January");
+    userMonth = 2 or userMonth = "february"; If (type = 1; 2; "February");
+    userMonth = 3 or userMonth = "march"; If (type = 1; 3; "March");
+    userMonth = 4 or userMonth = "april"; If (type = 1; 4; "April");
+    userMonth = 5 or userMonth = "may"; If (type = 1; 5; "May");
+    userMonth = 6 or userMonth = "june"; If (type = 1; 6; "June");
+    userMonth = 7 or userMonth = "july"; If (type = 1; 7; "July");
+    userMonth = 8 or userMonth = "august"; If (type = 1; 8; "August");
+    userMonth = 9 or userMonth = "september"; If (type = 1; 9; "September");
+    userMonth = 10 or userMonth = "october"; If (type = 1; 10; "October");
+    userMonth = 11 or userMonth = "november"; If (type = 1; 11; "November");
+    userMonth = 12 or userMonth = "december"; If (type = 1; 12; "December");
     "error " & userMonth
 )
