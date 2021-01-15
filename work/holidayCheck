@@ -1,0 +1,87 @@
+// c2021 Travis Witt
+// Determine if an upcoming date is a holiday ( using the parameter 'givenDate' ).
+// If you don't care about a certain holiday, comment it out.
+// Feel free to add holidays if you need to as well. These are just the holidays observed on my company calendar.
+
+Let ( [
+
+~givenDate = givenDate;
+~today = Get ( CurrentDate );
+~currentMonth = Month ( ~today );
+~easterCalc = If ( ~today > "3/31/" & Year( ~today ); "3/31/" & ( Year( ~today ) + 1 ); "3/31/" & Year( ~today ) );
+~memorialDayCalc = If ( ~today > "5/31/" & Year( ~today ); "5/31/" & ( Year( ~today ) + 1 ); "5/31/" & Year( ~today ) );
+~laborDayCalc = If ( ~today > "9/1/" & Year( ~today ); "9/1/" & ( Year( ~today ) + 1 ); "9/1/" & Year( ~today ) ); 
+~thanksgivingCalc = If ( ~today > "11/30/" & Year( ~today ); "11/30/" & ( Year( ~today ) + 1 ); "11/30/" & Year( ~today ) );
+
+// List of holidays and corresponding dates
+// ========================================
+~newYear = "1/1/" & ( Year ( ~today ) + 1 );
+~newYearsEve = "12/31/" & ( Year ( ~today ) );
+~easter = Case ( 
+    
+    DayName ( ~easterCalc ) = "Sunday"; GetAsDate ( ~easterCalc + 7 );
+    DayName ( ~easterCalc ) = "Monday"; GetAsDate ( ~easterCalc + 6 );
+    DayName ( ~easterCalc ) = "Tuesday"; GetAsDate ( ~easterCalc + 5 );
+    DayName ( ~easterCalc ) = "Wedensday"; GetAsDate ( ~easterCalc + 4 );
+    DayName ( ~easterCalc ) = "Thursday"; GetAsDate ( ~easterCalc + 3 );
+    DayName ( ~easterCalc ) = "Friday"; GetAsDate ( ~easterCalc + 2 );
+    GetAsDate ( ~easterCalc + 1 )
+
+);
+~memorialDay = Case (
+
+    DayName ( ~memorialDayCalc ) = "Tuesday"; GetAsDate ( ~memorialDayCalc + 6 );
+    DayName ( ~memorialDayCalc ) = "Wednesday"; GetAsDate ( ~memorialDayCalc + 5 );
+    DayName ( ~memorialDayCalc ) = "Thursday"; GetAsDate ( ~memorialDayCalc + 4 );
+    DayName ( ~memorialDayCalc ) = "Friday"; GetAsDate ( ~memorialDayCalc + 3 );
+    DayName ( ~memorialDayCalc ) = "Saturday"; GetAsDate ( ~memorialDayCalc + 2 );
+    DayName ( ~memorialDayCalc ) = "Sunday"; GetAsDate ( ~memorialDayCalc + 1 );
+    GetAsDate ( ~memorialDayCalc )
+
+);
+~independenceDay = "7/4/" & If ( ~today > "7/4/" & Year( ~today ); ( Year( ~today ) + 1 ); Year( ~today ) );
+~laborDay = Case (
+
+    DayName ( ~laborDayCalc ) = "Tuesday"; GetAsDate ( ~laborDayCalc + 6 );
+    DayName ( ~laborDayCalc ) = "Wednesday"; GetAsDate ( ~laborDayCalc + 5 );
+    DayName ( ~laborDayCalc ) = "Thursday"; GetAsDate ( ~laborDayCalc + 4 );
+    DayName ( ~laborDayCalc ) = "Friday"; GetAsDate ( ~laborDayCalc + 3 );
+    DayName ( ~laborDayCalc ) = "Saturday"; GetAsDate ( ~laborDayCalc + 2 );
+    DayName ( ~laborDayCalc ) = "Sunday"; GetAsDate ( ~laborDayCalc + 1 );
+    GetAsDate ( ~laborDayCalc )
+
+);
+~thanksgiving = Case (
+
+    DayName ( ~thanksgivingCalc ) = "Wednesday"; GetAsDate ( ~thanksgivingCalc - 6 );
+    DayName ( ~thanksgivingCalc ) = "Tuesday"; GetAsDate ( ~thanksgivingCalc - 5 );
+    DayName ( ~thanksgivingCalc ) = "Monday"; GetAsDate ( ~thanksgivingCalc - 4 );
+    DayName ( ~thanksgivingCalc ) = "Sunday"; GetAsDate ( ~thanksgivingCalc - 3 );
+    DayName ( ~thanksgivingCalc ) = "Saturday"; GetAsDate ( ~thanksgivingCalc - 2 );
+    DayName ( ~thanksgivingCalc ) = "Friday"; GetAsDate ( ~thanksgivingCalc - 1 );
+    GetAsDate ( ~thanksgivingCalc )
+
+);
+~christmasEve = "12/24/" & If ( ~today > "12/24/" & Year( ~today ); ( Year( ~today ) + 1 ); Year( ~today ) );
+~christmasDay = "12/25/" & If ( ~today > "12/25/" & Year( ~today ); ( Year( ~today ) + 1 ); Year( ~today ) )
+// ========================================
+
+
+];
+
+Case ( 
+    
+    ~givenDate = ~newYearsEve; 1;
+    ~givenDate = ~newYear; 1;
+    ~givenDate = ~easter; 1;
+    ~givenDate = ~memorialDay; 1;
+    ~givenDate = ~independenceDay; 1;
+    ~givenDate = ~laborDay; 1;
+    ~givenDate = ~thanksgiving; 1;
+    ~givenDate = ~christmasEve; 1;
+    ~givenDate = ~christmasDay; 1;
+    0
+
+ )
+
+ )
