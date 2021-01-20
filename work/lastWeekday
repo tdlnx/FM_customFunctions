@@ -9,6 +9,7 @@
 // ===
 // Changelog:
 // 01/20/2021 [Travis]: Created
+//                      This function and nextWeekday() have been rolled into findWeekdayDate().
 // ===
 
 Let ([

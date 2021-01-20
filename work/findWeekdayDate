@@ -1,0 +1,70 @@
+// Author: Travis Witt c.2021
+// Purpose: Find the date of the last or next specified weekday
+// Parameters: weekday (text), nextLast (text), excludeToday (number)
+// Notes: Enter '0' as excludeToday to count today's dayName in the calculation
+//        (ie. if you search  for the next/last Sunday on Sunday,  it will return the current date).
+//        Example input: findWeekdayDate("Monday"; "next"; 1) [In this example, the current date is 1/20/2021 (a Wednesday)]
+//        Example output: "01/25/2021" (the next Monday)
+// ===
+// Changelog:
+// 01/20/2021 [Travis]: Combined nextWeekday() and lastWeekday() into a single custom function, so you probably
+//                      don't need either of the two previous functions. I'm leaving them here anyway just
+//                      in case someone wants to use them.
+// ===
+
+Let ([
+    //Set Variables
+    ~weekday = Case ( 
+
+                weekday = "Sunday"; 1;
+                weekday = "Monday"; 2;
+                weekday = "Tuesday"; 3;
+                weekday = "Wednesday"; 4;
+                weekday = "Thursday"; 5;
+                weekday = "Friday"; 6;
+                weekday = "Saturday"; 7;
+                0
+            );
+    ~excludeToday = excludeToday;
+    ~nextLast = nextLast;
+    ~today = Get ( CurrentDate );
+    ~currentWeekday = DayOfWeek ( ~today );
+    ~dayDiff = If ( ~nextLast = "next"; ~weekday - ~currentWeekday; ~currentWeekday - ~weekday )
+];
+
+    If (
+
+        ~excludeToday = 0 and ~dayDiff = 0; ~today;
+        Case (
+
+            //Next Weekday
+            ~dayDiff = 0 and ~nextLast = "next"; ~today + 7;
+            ~dayDiff < 0 and ~nextLast = "next";
+                        Case (
+                            ~dayDiff = -1; ~today + 6;
+                            ~dayDiff = -2; ~today + 5;
+                            ~dayDiff = -3; ~today + 4;
+                            ~dayDiff = -4; ~today + 3;
+                            ~dayDiff = -5; ~today + 2;
+                            ~dayDiff = -6; ~today + 1;
+                            "error"
+                        );
+            ~dayDiff > 0 and ~nextLast = "next"; ~today + ~dayDiff;
+
+            //Last Weekday
+            ~dayDiff = 0 and ~nextLast = "last"; ~today - 7;
+            ~dayDiff < 0 and ~nextLast = "last";
+                        Case (
+                            ~dayDiff = -1; ~today - 6;
+                            ~dayDiff = -2; ~today - 5;
+                            ~dayDiff = -3; ~today - 4;
+                            ~dayDiff = -4; ~today - 3;
+                            ~dayDiff = -5; ~today - 2;
+                            ~dayDiff = -6; ~today - 1;
+                            "error"
+                        );
+            ~dayDiff > 0 and ~nextLast = "last"; ~today - ~dayDiff;
+            "error"
+        )
+    )
+)
