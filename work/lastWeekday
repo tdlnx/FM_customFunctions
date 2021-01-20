@@ -1,0 +1,52 @@
+// Author: Travis Witt c.2021
+// Purpose: Find the date of the last specified weekday
+// Parameters: weekday (text), excludeToday (number)
+// Notes: Enter '0' as excludeToday to count today's dayName in the calculation
+//        (ie. if you search  for the last Sunday on Sunday,  it will return the
+//        current date).
+//        Example input: lastWeekday("Monday"; 1) [In this example, the current date is 1/20/2021 (a Wednesday)]
+//        Example output: "01/18/2021" (the last Monday)
+// ===
+// Changelog:
+// 01/20/2021 [Travis]: Created
+// ===
+
+Let ([
+    //Set Variables
+    ~weekday = Case ( 
+
+                weekday = "Sunday"; 1;
+                weekday = "Monday"; 2;
+                weekday = "Tuesday"; 3;
+                weekday = "Wednesday"; 4;
+                weekday = "Thursday"; 5;
+                weekday = "Friday"; 6;
+                weekday = "Saturday"; 7;
+                0
+            );
+    ~excludeToday = excludeToday;
+    ~today = Get ( CurrentDate );
+    ~currentWeekday = DayOfWeek ( ~today );
+    ~dayDiff = ~currentWeekday - ~weekday
+];
+
+    If (
+
+        ~excludeToday = 0 and ~dayDiff = 0; ~today;
+        Case (
+            ~dayDiff = 0; ~today - 7;
+            ~dayDiff < 0;
+                        Case (
+                            ~dayDiff = -1; ~today - 6;
+                            ~dayDiff = -2; ~today - 5;
+                            ~dayDiff = -3; ~today - 4;
+                            ~dayDiff = -4; ~today - 3;
+                            ~dayDiff = -5; ~today - 2;
+                            ~dayDiff = -6; ~today - 1;
+                            "error"
+                        );
+            ~dayDiff > 0; ~today - ~dayDiff;
+            "error"
+        )
+    )
+)
