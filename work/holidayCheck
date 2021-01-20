@@ -1,7 +1,14 @@
-// c2021 Travis Witt
-// Determine if an upcoming date is a holiday ( using the parameter 'givenDate' ).
-// If you don't care about a certain holiday, comment it out.
-// Feel free to add holidays if you need to as well. These are just the holidays observed on my company calendar.
+// Author: Travis Witt c.2021
+// Purpose: Determine if an upcoming date is a holiday.
+// Parameters: givenDate (date)
+// Notes: If you don't care about a certain holiday, comment it out. Feel free to add
+//        holidays if you need to as well. These are just the holidays observed on my
+//        company's calendar.
+// ===
+// Changelog:
+// 01/15/2021 [Travis]: Created
+// 01/20/2021 [Travis]: Added the standard header.
+// ===
 
 Let ( [
 
