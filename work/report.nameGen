@@ -6,16 +6,15 @@
 // Changelog:
 // 10/19/2020 [Travis]: Created
 // 11/09/2020 [Travis]: Added example input/output and uploaded to GitHub
+// 01/20/2021 [Travis]: Replaced the date formatting with something much nicer and simpler.
+//                      Also realized I was getting the current date in the last version, so
+//                      this version actually uses the reportDate parameter (Doh!) 
 // ===
 
 // Example Input: report.nameGen("Daily_Attendance_Report"; Get (CurrentDate); "pdf")
 // Example Output: Daily_Attendance_Report_11092020.pdf
 
-Substitute ( reportName ; " "; "_" ) & "_" &
-
-//Format date so it is always 8 characters long
-If( Month( Get( CurrentDate ) ) < 10; "0" & Month( Get( CurrentDate ) ); Month( Get( CurrentDate) ) ) &
-If( Day( Get( CurrentDate ) ) < 10; "0" & Day( Get( CurrentDate ) ); Day( Get( CurrentDate ) ) ) &
-Year( Get( CurrentDate ) ) &
-
-"." & reportExt
+Substitute ( reportName; " "; "_" ) & "_" &
+Right ( "00" & Month ( reportDate ) ); 2 ) &
+Right ( "00" & Day ( reportDate ); 2 )  &
+Year ( reportDate ) & "." & reportExt
