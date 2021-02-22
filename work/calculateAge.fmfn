@@ -7,8 +7,35 @@
 // ===
 
 Let ([
-    ~birthdate = birthdate;
-    ~format = format
+
+    ~format = format;
+    
+    // User date
+    ~bdYear = Year ( birthdate );
+    ~bdMonth = Month ( birthdate );
+    ~bdDay = Day ( birthdate );
+
+    // Current date
+    ~cYear = Year ( Get ( CurrentDate ) );
+    ~cMonth = Month ( Get ( CurrentDate ) );
+    ~cDay = Day ( Get ( CurrentDate ) )
+
+    // Other
+    ~isLeapYear = Case ( 
+
+                    Mod ( ~cYear; 400 ) = 0; 1;
+                    Mod ( ~cYear; 100 ) = 0; 1;
+                    Mod ( ~cYear; 4 ) = 0; 1;
+                    0
+
+                );
+    ~result = "";   // calculation
+
 ];
-    // calc goes here
+
+    If ( ~format = 1;
+        ~result;
+        ~result & "years old"
+    )
+
 )
