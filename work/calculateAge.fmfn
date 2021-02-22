@@ -1,0 +1,14 @@
+// Author: Travis Witt c.2021
+// Purpose: Determine a person's age based on their date of birth
+// Parameters: birthdate (date), format (number)
+// Notes: Enter '1' for the year only, enter '2' to append "years old" to the result
+// ===
+// Changelog:
+// ===
+
+Let ([
+    ~birthdate = birthdate;
+    ~format = format
+];
+    // calc goes here
+)
