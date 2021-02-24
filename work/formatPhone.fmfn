@@ -1,0 +1,35 @@
+// Author: Travis Witt c.2021
+// Purpose: Format a phone number to make it look pretty
+// Parameters: phoneNumber (Text/Number)
+// Notes: This will format the number in a couple of ways depending on the
+//        number of characters. For numbers 7 digits long, it will just put
+//        a '-' between the third and fourth character. For numbers that are
+//        10 digits it will put the area code in '()' and add a '-' between
+//        numbers 3 and 4. For numbers any longer than 10 digits it will
+//        assume the remaining numbers are an extension and either return
+//        'x.XXXX' at the end (if option is set to 1), or return the extra
+//        digits as a second value (so you can automatically move it to an
+//        extension field if you have one in your solution).
+// ===
+// Changelog:
+// 02/24/2021 [Travis]: Created
+// ===
+
+Let ([
+    ~phone = phoneNumber;
+    ~filteredPhone = Filter ( ~phone; "0123456789" );
+    ~option = option;
+    ~format = Case ( 
+
+                Length ( ~filteredPhone ) = 7; Left ( ~filteredPhone; 3 ) & "-" & Middle ( ~filteredPhone; 4; 4);
+                Length ( ~filteredPhone ) = 10; "(" & Left ( ~filteredPhone; 3 ) & ") " & Middle ( ~filteredPhone; 4; 3 ) & "-" & Middle ( ~filteredPhone; 7; 4 );
+                Length ( ~filteredPhone ) > 10; "(" & Left ( ~filteredPhone; 3 ) & ") " & Middle ( ~filteredPhone; 4; 3 ) & "-" & Middle ( ~filteredPhone; 7; 4 ) & 
+                    If ( ~option = 1;
+                        " x." & Middle ( ~filteredPhone; 11; ( Length ( ~filteredPhone ) - 10 ));
+                        ¶ & Middle ( ~filteredPhone; 11; ( Length ( ~filteredPhone ) - 10 ))
+                    );
+                ~phone
+            )
+];
+    ~format
+)

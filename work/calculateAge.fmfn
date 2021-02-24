@@ -1,14 +1,16 @@
 // Author: Travis Witt c.2021
-// Purpose: Determine a person's age based on their date of birth
+// Purpose: Super basic age calculation based on date of birth
 // Parameters: birthdate (date), format (number)
 // Notes: Enter '1' for the year only, enter '2' to append "years old" to the result
 // ===
 // Changelog:
 // ===
 
+// NOTE: THIS DOESN'T DO ANYTING YET IT'S JUST A SUPER BASIC TEMPLATE
+
 Let ([
 
-    ~format = format;
+    ~format = 1; // format
     
     // User date
     ~bdYear = Year ( birthdate );
@@ -18,18 +20,14 @@ Let ([
     // Current date
     ~cYear = Year ( Get ( CurrentDate ) );
     ~cMonth = Month ( Get ( CurrentDate ) );
-    ~cDay = Day ( Get ( CurrentDate ) )
+    ~cDay = Day ( Get ( CurrentDate ) );
 
-    // Other
-    ~isLeapYear = Case ( 
+    ~result = If ( ( ~bdMonth > ~cMonth ) and ( ~bdDay > ~cDay );
 
-                    Mod ( ~cYear; 400 ) = 0; 1;
-                    Mod ( ~cYear; 100 ) = 0; 1;
-                    Mod ( ~cYear; 4 ) = 0; 1;
-                    0
+                ~cYear - ~bdYear;
+                ~cYear - ( ~bdYear + 1 )
 
-                );
-    ~result = "";   // calculation
+            )   // calculation
 
 ];
 
