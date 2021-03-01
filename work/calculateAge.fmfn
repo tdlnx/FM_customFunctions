@@ -1,39 +1,26 @@
 // Author: Travis Witt c.2021
 // Purpose: Super basic age calculation based on date of birth
-// Parameters: birthdate (date), format (number)
-// Notes: Enter '1' for the year only, enter '2' to append "years old" to the result
+// Parameters: birthdate (date)
 // ===
-// Changelog:
-// ===
-
-// NOTE: THIS DOESN'T DO ANYTING YET IT'S JUST A SUPER BASIC TEMPLATE
 
 Let ([
-
-    ~format = 1; // format
     
     // User date
-    ~bdYear = Year ( birthdate );
-    ~bdMonth = Month ( birthdate );
-    ~bdDay = Day ( birthdate );
+    ~bd = birthdate;
+    ~bdYear = Year ( ~bd );
+    ~bdMonth = Month ( ~bd );
+    ~bdDay = Day ( ~bd );
 
     // Current date
+    ~cd = Get ( CurrentDate ); 
     ~cYear = Year ( Get ( CurrentDate ) );
     ~cMonth = Month ( Get ( CurrentDate ) );
     ~cDay = Day ( Get ( CurrentDate ) );
 
-    ~result = If ( ( ~bdMonth > ~cMonth ) and ( ~bdDay > ~cDay );
-
-                ~cYear - ~bdYear;
-                ~cYear - ( ~bdYear + 1 )
-
-            )   // calculation
+    ~result = ~cYear - ~bdYear - If ( ~cd < Date ( ~bdMonth; ~bdDay; ~cYear ); 1; 0 )
 
 ];
 
-    If ( ~format = 1;
-        ~result;
-        ~result & "years old"
-    )
+~result
 
 )
