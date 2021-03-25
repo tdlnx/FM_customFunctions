@@ -39,11 +39,11 @@ Let ([
 ];
     While ([
                 ~i = 1;
-                ~string = ""
+                ~salsa = ""
             ];
                 ~i <= ~length;
             [
-                ~string = ~string & TextColor ( Middle ( ~text; ~i; 1 ); 
+                ~salsa = ~salsa & TextColor ( Middle ( ~text; ~i; 1 ); 
                                                     Case(
                                                         //SpIcY
                                                         GetValue ( ~ingredients; ~i) = "hot1"; RGB(250; 30; 14);
@@ -69,6 +69,6 @@ Let ([
                                             );
                 ~i = ~i + 1
             ];
-                ~string
+                ~salsa
             )
 )
