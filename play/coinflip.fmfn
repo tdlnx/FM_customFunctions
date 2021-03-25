@@ -1,0 +1,11 @@
+// Author: Travis Witt c.2021
+// Purpose: Flip a coin and return 'heads' or 'tails'
+// ===
+// Changelog: 
+// 03/24/2021 [Travis]: Created
+// ===
+
+If ( Random > .4;
+    "Heads";
+    "Tails"
+)
