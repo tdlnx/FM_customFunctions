@@ -3,7 +3,7 @@
 //          ~ Now with 3 options from ChIlLy to SpIcY!
 // Parameters: boringText (text), zestLevel (int [1-3])
 // Notes: As a special added bonus, entering '0' for
-//        zest returns chilly cold text ~bRrRrr~
+//        zestLevel returns chilly cold text ~bRrRrr~
 //        Also, if no zest level is specified 'med' is
 //        selected by default.
 // ===
