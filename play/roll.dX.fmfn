@@ -11,7 +11,7 @@
 Let(
     [
         count = If(IsEmpty (rollCount); 1; rollCount);
-        result = Int(Random * (dX - 1 + 1)) + 1
+        result = Int(Random * (dX)) + 1
     ];
     
     Case(
