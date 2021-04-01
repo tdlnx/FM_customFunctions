@@ -19,11 +19,11 @@ Let ([
     ~phone = phoneNumber;
     ~filteredPhone = Filter ( ~phone; "0123456789" );
     ~option = option;
-    ~format = Case ( 
+    ~format = Case (
 
                 Length ( ~filteredPhone ) = 7; Left ( ~filteredPhone; 3 ) & "-" & Middle ( ~filteredPhone; 4; 4);
                 Length ( ~filteredPhone ) = 10; "(" & Left ( ~filteredPhone; 3 ) & ") " & Middle ( ~filteredPhone; 4; 3 ) & "-" & Middle ( ~filteredPhone; 7; 4 );
-                Length ( ~filteredPhone ) > 10; "(" & Left ( ~filteredPhone; 3 ) & ") " & Middle ( ~filteredPhone; 4; 3 ) & "-" & Middle ( ~filteredPhone; 7; 4 ) & 
+                Length ( ~filteredPhone ) > 10; "(" & Left ( ~filteredPhone; 3 ) & ") " & Middle ( ~filteredPhone; 4; 3 ) & "-" & Middle ( ~filteredPhone; 7; 4 ) &
                     If ( ~option = 1;
                         " x." & Middle ( ~filteredPhone; 11; ( Length ( ~filteredPhone ) - 10 ));
                         ¶ & Middle ( ~filteredPhone; 11; ( Length ( ~filteredPhone ) - 10 ))
